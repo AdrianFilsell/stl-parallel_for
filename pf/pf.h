@@ -1,0 +1,32 @@
+
+// pf.h : main header file for the PROJECT_NAME application
+//
+
+#pragma once
+
+#ifndef __AFXWIN_H__
+	#error "include 'pch.h' before including this file for PCH"
+#endif
+
+#include "resource.h"		// main symbols
+
+
+// CpfApp:
+// See pf.cpp for the implementation of this class
+//
+
+class CpfApp : public CWinApp
+{
+public:
+	CpfApp();
+
+// Overrides
+public:
+	virtual BOOL InitInstance();
+
+// Implementation
+
+	DECLARE_MESSAGE_MAP()
+};
+
+extern CpfApp theApp;

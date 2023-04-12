@@ -19,7 +19,7 @@ public:
 	enum graintype {gt_floor,gt_round,gt_ceil};
 	parallel_for_range():m_bEmpty(true){}
 	parallel_for_range(unsigned int nFrom,const unsigned int nCount,const unsigned int nCores,const graintype gt=gt_ceil){getgrain(nFrom,nCount,nCores,gt);}
-	parallel_for_range(const parallel_for_range& other):m_nFrom(other.m_nFrom),m_nInclusiveTo(other.m_nInclusiveTo),m_nWholeSubRangeSize(other.m_nWholeSubRangeSize),m_nSubRangeCount(other.m_nSubRangeCount){}
+	parallel_for_range(const parallel_for_range& other):m_bEmpty(other.m_bEmpty),m_nFrom(other.m_nFrom),m_nInclusiveTo(other.m_nInclusiveTo),m_nWholeSubRangeSize(other.m_nWholeSubRangeSize),m_nSubRangeCount(other.m_nSubRangeCount){}
 	~parallel_for_range(){}
 	bool isempty( void ) const { return m_bEmpty; }
 	parallel_for_range getsubrange( const unsigned int n ) const{const unsigned int nFrom = m_nFrom+(n*m_nWholeSubRangeSize);const unsigned int nSize = n==(m_nSubRangeCount-1) ? (m_nInclusiveTo-nFrom+1) : m_nWholeSubRangeSize;return parallel_for_range(nFrom,nSize,1,gt_floor);}
